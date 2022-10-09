@@ -1,3 +1,5 @@
+using System.Security.Policy;
+
 namespace DEVinCar.Domain.Models
 {
     public class User
@@ -6,18 +8,20 @@ namespace DEVinCar.Domain.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
+        public string Role { get; set; }
         public DateTime BirthDate { get; set; }
 
         public User()
         {
             
         }
-        public User(int id, string email, string password, string name, DateTime birthDate)
+        public User(int id, string email, string password, string name, string role, DateTime birthDate)
         {
             Id = id;
             Email = email;
             Password = password;
             Name = name;
+            Role = role;
             BirthDate = birthDate;
         }
     }
