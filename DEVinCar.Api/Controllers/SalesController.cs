@@ -5,11 +5,13 @@ using DEVinCar.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DEVinCar.Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/sales")]
+[Authorize]
 public class SalesController : ControllerBase
 {
     private readonly DevInCarDbContext _context;

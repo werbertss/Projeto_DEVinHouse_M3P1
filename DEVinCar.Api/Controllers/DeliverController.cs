@@ -4,11 +4,13 @@ using DEVinCar.Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Runtime.ConstrainedExecution;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEVinCar.Api.Controllers
 {
     [ApiController]
     [Route("api/deliver")]
+    [Authorize]
     public class DeliverController : ControllerBase
     {
         private readonly DevInCarDbContext _context;

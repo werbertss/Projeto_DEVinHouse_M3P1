@@ -2,11 +2,13 @@
 using DEVinCar.Infra.Data;
 using DEVinCar.Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/user")]
+[Authorize]
 
 public class UserController : ControllerBase
 {

@@ -4,11 +4,13 @@ using DEVinCar.Domain.DTOs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using DEVinCar.Domain.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/address")]
+[Authorize]
 
 public class AddressesController : ControllerBase
 {

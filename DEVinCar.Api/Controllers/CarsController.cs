@@ -3,11 +3,13 @@ using DEVinCar.Infra.Data;
 using DEVinCar.Domain.DTOs;
 using DEVinCar.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/car")]
+[Authorize]
 public class CarController : ControllerBase
 {
     private readonly DevInCarDbContext _context;

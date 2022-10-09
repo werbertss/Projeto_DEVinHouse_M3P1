@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/xyz")]
+[Authorize]
 public class XYZController : ControllerBase
 {
 
