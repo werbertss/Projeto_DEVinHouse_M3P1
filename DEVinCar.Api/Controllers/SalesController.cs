@@ -12,6 +12,7 @@ namespace DEVinCar.Api.Controllers;
 [ApiController]
 [Route("api/sales")]
 [Authorize]
+
 public class SalesController : ControllerBase
 {
     private readonly DevInCarDbContext _context;
@@ -48,6 +49,7 @@ public class SalesController : ControllerBase
     }
 
     [HttpPost("{saleId}/item")]
+    [Authorize(Roles = "Gerente, gerente,Vendedor,vendedor")]
     public ActionResult<SaleCar> PostSale(
        [FromBody] SaleCarDTO body,
        [FromRoute] int saleId

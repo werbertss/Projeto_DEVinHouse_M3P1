@@ -1,15 +1,17 @@
-
+using DEVinCar.Domain.ViewModels;
 using DEVinCar.Infra.Data;
 using DEVinCar.Domain.DTOs;
 using DEVinCar.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/car")]
-[Authorize]
+[Authorize(Roles = "Gerente, gerente")]
+
 public class CarController : ControllerBase
 {
     private readonly DevInCarDbContext _context;

@@ -56,14 +56,14 @@ IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name
     SET IDENTITY_INSERT [Cars] OFF;
 GO
 
-IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'BirthDate', N'Email', N'Name', N'Password') AND [object_id] = OBJECT_ID(N'[Users]'))
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'BirthDate', N'Email', N'Name', N'Role', N'Password') AND [object_id] = OBJECT_ID(N'[Users]'))
     SET IDENTITY_INSERT [Users] ON;
-INSERT INTO [Users] ([Id], [BirthDate], [Email], [Name], [Password])
-VALUES (1, '2000-12-10T00:00:00.0000000', N'jose@email.com', N'Jose', N'12345678'),
-(2, '1999-05-11T00:00:00.0000000', N'andrea@email.com', N'Andrea', N'12345678'),
-(3, '2005-09-02T00:00:00.0000000', N'adao@email.com', N'Adao', N'12345678'),
-(4, '2001-06-07T00:00:00.0000000', N'monique@email.com', N'Monique', N'12345678');
-IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'BirthDate', N'Email', N'Name', N'Password') AND [object_id] = OBJECT_ID(N'[Users]'))
+INSERT INTO [Users] ([Id], [BirthDate], [Email], [Name], [Role], [Password])
+VALUES (1, '2000-12-10T00:00:00.0000000', N'jose@email.com', N'Jose', 'Vemdedor', N'12345678'),
+(2, '1999-05-11T00:00:00.0000000', N'andrea@email.com', N'Andrea', 'Comprador', N'12345678'),
+(3, '2005-09-02T00:00:00.0000000', N'adao@email.com', N'Adao', 'Comprador', N'12345678'),
+(4, '2001-06-07T00:00:00.0000000', N'monique@email.com', N'Monique', 'Gerente', N'12345678');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'BirthDate', N'Email', N'Name', N'Role', N'Password') AND [object_id] = OBJECT_ID(N'[Users]'))
     SET IDENTITY_INSERT [Users] OFF;
 GO
 
