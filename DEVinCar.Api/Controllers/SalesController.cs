@@ -48,6 +48,7 @@ public class SalesController : ControllerBase
     }
 
     [HttpPost("{saleId}/item")]
+    [Authorize(Roles = "Gerente, gerente, Vendedor, vendedor")]
     public ActionResult<SaleCar> PostSale(
        [FromBody] SaleCarDTO body,
        [FromRoute] int saleId

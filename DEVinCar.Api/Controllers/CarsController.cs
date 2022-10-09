@@ -1,4 +1,3 @@
-
 using DEVinCar.Infra.Data;
 using DEVinCar.Domain.DTOs;
 using DEVinCar.Domain.Models;
@@ -9,7 +8,7 @@ namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/car")]
-[Authorize]
+[Authorize (Roles = "Gerente, gerente")]
 public class CarController : ControllerBase
 {
     private readonly DevInCarDbContext _context;
