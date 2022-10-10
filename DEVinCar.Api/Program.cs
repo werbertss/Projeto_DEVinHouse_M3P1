@@ -63,7 +63,6 @@ builder.Services.AddMvc(config =>
     config.ReturnHttpNotAcceptable = true;
     config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
     config.InputFormatters.Add(new XmlSerializerInputFormatter(config));
-
 });
 
 
