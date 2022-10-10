@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using DEVinCar.Domain.Settings;
 using DEVinCar.Infra.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -55,6 +56,15 @@ builder.Services.AddSwaggerGen(c => {
                                             });
 });
 
+
+// Adicionado 7 - Aplicação do Content Negotiation (Accept json e  xml)
+builder.Services.AddMvc(config =>
+{
+    config.ReturnHttpNotAcceptable = true;
+    config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+    config.InputFormatters.Add(new XmlSerializerInputFormatter(config));
+
+});
 
 
 builder.Services.AddControllers();
