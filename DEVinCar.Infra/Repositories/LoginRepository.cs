@@ -19,7 +19,7 @@ namespace DEVinCar.Infra.Repositories
                 Email = "Pedro@email.com",
                 Password = "12345",
                 Name = "Pedro",
-                Role = "gerente",
+                Role = "Gerente",
                 BirthDate = new DateTime(2001, 06, 07)
             }
         };
