@@ -8,9 +8,15 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
+
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
+
 
 builder.Services.AddAuthentication(x =>
 {
@@ -57,19 +63,23 @@ builder.Services.AddSwaggerGen(c => {
 });
 
 
-// Adicionado 7 - Aplicação do Content Negotiation (Accept json e  xml)
-builder.Services.AddMvc(config =>
-{
-    config.ReturnHttpNotAcceptable = true;
-    config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-    config.InputFormatters.Add(new XmlSerializerInputFormatter(config));
-});
-
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DevInCarDbContext>();
+
+
+// Adicionado 7 - Aplicação do Content Negotiation (Accept json e  xml)
+//builder.Services.AddMvc(config =>
+//{
+//    config.ReturnHttpNotAcceptable = true;
+//    config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+//    config.InputFormatters.Add(new XmlSerializerInputFormatter(config));
+//});
+
+
+builder.Services.AddMvc();
+
 
 var app = builder.Build();
 
@@ -82,6 +92,8 @@ if (app.Environment.IsDevelopment())
 
 // comentando para conseguir trabalhar com Insomnia/Postman via http comum
 //app.UseHttpsRedirection();
+
+
 
 app.UseAuthentication();
 app.UseAuthorization();

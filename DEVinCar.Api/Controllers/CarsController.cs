@@ -8,6 +8,7 @@ namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/car")]
+[AllowAnonymous]
 [Authorize (Roles = "Gerente, gerente")]
 public class CarController : ControllerBase
 {
